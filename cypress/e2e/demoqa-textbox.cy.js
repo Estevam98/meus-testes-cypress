@@ -8,3 +8,8 @@ describe('DemoQA - Text Box', () => {
     cy.get('#name').should('contain', 'Lucas Estevam')
   })
 })
+it('deve clicar no botão e ver a mensagem', () => {
+  cy.visit('https://demoqa.com/buttons')
+  cy.get('[type="button"]').eq(3).click({force: true})
+  cy.get('#dynamicClickMessage').should('contain', 'You have done a dynamic click')
+})
