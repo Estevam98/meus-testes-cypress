@@ -13,3 +13,8 @@ it('deve clicar no botão e ver a mensagem', () => {
   cy.get('[type="button"]').eq(3).click({force: true})
   cy.get('#dynamicClickMessage').should('contain', 'You have done a dynamic click')
 })
+it('deve marcar um checkbox e verificar o estado', () => {
+  cy.visit('https://demoqa.com/checkbox')
+  cy.get('[role="checkbox"]').click()
+  cy.get('.text-success').should('contain', 'home')
+})
