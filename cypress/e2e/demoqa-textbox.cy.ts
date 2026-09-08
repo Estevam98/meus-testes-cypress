@@ -18,3 +18,8 @@ it('deve marcar um checkbox e verificar o estado', () => {
   cy.get('[role="checkbox"]').click()
   cy.get('.text-success').should('contain', 'home')
 })
+it('deve clicar no botão e verificar a mensagem yes', () => {
+  cy.visit('https://demoqa.com/radio-button')
+  cy.get('#yesRadio').click({force: true})
+  cy.get('.text-success').should('contain', 'Yes')
+})
