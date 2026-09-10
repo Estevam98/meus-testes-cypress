@@ -1,4 +1,5 @@
 import TextBoxPage from '../pages/TextBoxPage'
+import ButtonsPage from '../pages/ButtonsPage'
 
 describe('DemoQA - Testes E2E', () => {
 
@@ -11,9 +12,9 @@ describe('DemoQA - Testes E2E', () => {
   })
 
   it('deve clicar no botão e ver a mensagem', () => {
-    cy.visit('https://demoqa.com/buttons')
-    cy.get('[type="button"]').eq(3).click({force: true})
-    cy.get('#dynamicClickMessage').should('contain', 'You have done a dynamic click')
+    ButtonsPage.visit()
+    ButtonsPage.buttonClickMe()
+    ButtonsPage.checkMessage()
   })
 
   it('deve marcar um checkbox e verificar o estado', () => {
