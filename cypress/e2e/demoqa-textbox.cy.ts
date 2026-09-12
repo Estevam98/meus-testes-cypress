@@ -1,5 +1,6 @@
 import TextBoxPage from '../pages/TextBoxPage'
 import ButtonsPage from '../pages/ButtonsPage'
+import CheckboxPage from '../pages/CheckboxPage'
 
 describe('DemoQA - Testes E2E', () => {
 
@@ -18,9 +19,9 @@ describe('DemoQA - Testes E2E', () => {
   })
 
   it('deve marcar um checkbox e verificar o estado', () => {
-    cy.visit('https://demoqa.com/checkbox')
-    cy.get('[role="checkbox"]').click()
-    cy.get('.text-success').should('contain', 'home')
+    CheckboxPage.visit()
+    CheckboxPage.selectHome()
+    CheckboxPage.checkMessage()
   })
 
   it('deve clicar no radio button e verificar a mensagem', () => {
