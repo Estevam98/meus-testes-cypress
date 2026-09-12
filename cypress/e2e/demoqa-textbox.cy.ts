@@ -1,6 +1,7 @@
 import TextBoxPage from '../pages/TextBoxPage'
 import ButtonsPage from '../pages/ButtonsPage'
 import CheckboxPage from '../pages/CheckboxPage'
+import RadioButtonPage from '../pages/RadioButtonPage'
 
 describe('DemoQA - Testes E2E', () => {
 
@@ -25,9 +26,9 @@ describe('DemoQA - Testes E2E', () => {
   })
 
   it('deve clicar no radio button e verificar a mensagem', () => {
-    cy.visit('https://demoqa.com/radio-button')
-    cy.get('#yesRadio').click({force: true})
-    cy.get('.text-success').should('contain', 'Yes')
+    RadioButtonPage.visit()
+    RadioButtonPage.buttonYes()
+    RadioButtonPage.checkMessage()
   })
 
 })
