@@ -31,4 +31,13 @@ describe('DemoQA - Testes E2E', () => {
     RadioButtonPage.checkMessage()
   })
 
+  it('Formulário sem o Email', () => {
+    cy.visit('https://demoqa.com/text-box')
+    cy.get('#userName').type('Lucas Estevam') 
+    cy.get('#currentAddress').type('Isso é um teste')
+    cy.get('#permanentAddress').type('Isso realmente é um teste') 
+    cy.get('#submit').click() 
+    cy.get('.border').should('not.include.text', 'Email')
+
+  })
 })
