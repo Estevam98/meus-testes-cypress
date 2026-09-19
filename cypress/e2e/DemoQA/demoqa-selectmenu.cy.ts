@@ -1,4 +1,4 @@
-import SelectMenuPage from '../pages/SelectMenuPage'
+import SelectMenuPage from '../../pages/demoqa/SelectMenuPage'
 
 describe('DemoQA - Select Menu', () => {
   beforeEach(() => {
