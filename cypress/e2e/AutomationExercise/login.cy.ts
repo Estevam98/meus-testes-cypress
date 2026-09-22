@@ -34,4 +34,11 @@ describe('Automation Exercise - Login', () => {
     cy.get('[data-qa="login-button"]').click()
     cy.get('a').contains('Logout').should('be.visible')
   })
+
+  it('login com email inválido', () => {
+  cy.get("[data-qa='login-email']").type('Teste@t.com')
+  cy.get("[data-qa='login-password']").type('Senha@123')
+  cy.get('[data-qa="login-button"]').click()
+  cy.get('[style="color: red;"]').should('be.visible')
+})
 })
