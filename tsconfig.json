@@ -7,4 +7,9 @@
   "include": [
     "cypress/**/*.ts"
   ]
+
+  ,
+"cypress-cucumber-preprocessor": {
+  "stepDefinitions": "cypress/step_definitions/**/*.{js,ts}"
+}
 }
