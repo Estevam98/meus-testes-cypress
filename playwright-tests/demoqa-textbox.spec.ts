@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import TextBoxPage from '../pages/TextBoxPage'; 
 
 test('deve verificar o título da página', async ({ page }) => {
   await page.goto('https://demoqa.com/text-box');
@@ -6,13 +7,14 @@ test('deve verificar o título da página', async ({ page }) => {
 });
 
 test('deve preencher o formulário e ver o resultado', async ({ page }) => {
-  await page.goto('https://demoqa.com/text-box');
+  const textBoxPage = new TextBoxPage(page);
+  await textBoxPage.visit();
 
-  await page.locator('#userName').fill('Lucas Estevam');
-  await page.locator('#userEmail').fill('lucasqa@teste.com');
-  await page.getByRole('button', { name: 'Submit' }).click();
+  await textBoxPage.fillName('Lucas Estevam');
+  await textBoxPage.fillEmail('lucasqa@teste.com');
+  await textBoxPage.submit();
+  await textBoxPage.checkResult('Lucas Estevam');
 
-  await expect(page.locator('#name')).toContainText('Lucas Estevam');
 });
 
 test('deve verificar o título da página de checkbox', async ({ page }) => {

@@ -1,4 +1,4 @@
-import { Page } from '@playwright/test'
+import { Page, expect } from '@playwright/test'
 
 class TextBoxPage {
   constructor(private page: Page) {}
@@ -19,6 +19,8 @@ class TextBoxPage {
   }
 
     async checkResult(name: string) {
-      await expect(page.locator('#name')).toContainText('Lucas Estevam')
+      await expect(this.page.locator('#name')).toContainText(name)
+}
+
 }
 export default TextBoxPage
