@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import TextBoxPage from './pages/TextBoxPage';
+import CheckboxPage from './pages/CheckboxPage';
 
 test('deve verificar o título da página', async ({ page }) => {
   await page.goto('https://demoqa.com/text-box');
@@ -23,10 +24,8 @@ test('deve verificar o título da página de checkbox', async ({ page }) => {
 });
 
 test('deve clicar no checkbox Home e verificar o resultado', async ({ page }) => {
-  await page.goto('https://demoqa.com/checkbox');
-
-  await page.getByRole('checkbox', { name: 'Select Home' }).check();
-
-  await page.locator('#result').waitFor({ state: 'visible' });
-  await expect(page.locator('#result')).toContainText('home');
+    const checkboxPage = new CheckboxPage(page);
+    await checkboxPage.visit();
+    await checkboxPage.checkHomeCheckbox();
+    await checkboxPage.checkResult();
 });
