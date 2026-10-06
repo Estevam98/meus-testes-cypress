@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import TextBoxPage from '../pages/TextBoxPage'; 
+import TextBoxPage from './pages/TextBoxPage';
 
 test('deve verificar o título da página', async ({ page }) => {
   await page.goto('https://demoqa.com/text-box');
