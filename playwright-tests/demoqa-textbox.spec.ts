@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import TextBoxPage from './pages/TextBoxPage';
 import CheckboxPage from './pages/CheckboxPage';
+import RadioButtonPage from './pages/RadioButtonPage';
 
 test('deve verificar o título da página', async ({ page }) => {
   await page.goto('https://demoqa.com/text-box');
@@ -28,4 +29,11 @@ test('deve clicar no checkbox Home e verificar o resultado', async ({ page }) =>
     await checkboxPage.visit();
     await checkboxPage.checkHomeCheckbox();
     await checkboxPage.checkResult();
+});
+
+test('deve verificar o título da página de radio button e clicar na opção Yes', async ({ page }) => {
+    const radioButtonPage = new RadioButtonPage(page);
+    await radioButtonPage.visit();
+    await radioButtonPage.clickYes();
+    await radioButtonPage.checkResult();
 });
