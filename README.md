@@ -1,9 +1,12 @@
 # 🧪 QA Automation Portfolio
 
+# 🧪 QA Automation Portfolio
+
 [![Cypress](https://img.shields.io/badge/Cypress-15.x-17202C?logo=cypress&logoColor=white)](https://www.cypress.io/)
 [![Playwright](https://img.shields.io/badge/Playwright-1.x-2EAD33?logo=playwright&logoColor=white)](https://playwright.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5%2B-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![GitHub Actions](https://img.shields.io/badge/CI-GitHub%20Actions-2088FF?logo=githubactions&logoColor=white)](https://github.com/features/actions)
+[![Cypress Tests](https://github.com/Estevam98/meus-testes-cypress/actions/workflows/cypress.yml/badge.svg)](https://github.com/Estevam98/meus-testes-cypress/actions/workflows/cypress.yml)
 
 > Portfólio de automação de testes com foco em **E2E, regressão, cenários positivos e negativos, organização de código e execução automatizada**.
 
