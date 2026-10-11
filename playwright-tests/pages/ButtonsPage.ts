@@ -1,6 +1,6 @@
 import { Page, expect } from '@playwright/test'
 
-class ButtonPage {
+class ButtonsPage {
   constructor(private page: Page) {}
 
   async visit() {
@@ -14,4 +14,4 @@ class ButtonPage {
 }
   }
 
-export default ButtonPage
+export default ButtonsPage

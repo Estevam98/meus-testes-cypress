@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import TextBoxPage from './pages/TextBoxPage';
 import CheckboxPage from './pages/CheckboxPage';
 import RadioButtonPage from './pages/RadioButtonPage';
-import ButtonPage from './pages/ButtonsPage';
+import ButtonsPage from './pages/ButtonsPage';
 
 test('deve verificar o título da página', async ({ page }) => {
   await page.goto('https://demoqa.com/text-box');
@@ -40,8 +40,8 @@ test('deve verificar o título da página de radio button e clicar na opção Ye
 });
 
 test('deve clicar no botão Click Me e verificar o resultado', async ({ page }) => {
-    const buttonPage = new ButtonPage(page);
-    await buttonPage.visit();
-    await buttonPage.clickMe();
-    await buttonPage.checkResult();
+    const buttonsPage = new ButtonsPage(page);
+    await buttonsPage.visit();
+    await buttonsPage.clickMe();
+    await buttonsPage.checkResult();
 });
