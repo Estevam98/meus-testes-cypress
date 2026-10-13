@@ -3,6 +3,7 @@ import TextBoxPage from './pages/TextBoxPage';
 import CheckboxPage from './pages/CheckboxPage';
 import RadioButtonPage from './pages/RadioButtonPage';
 import ButtonsPage from './pages/ButtonsPage';
+import SelectMenuPage from './pages/SelectMenuPage';
 
 test('deve verificar o título da página', async ({ page }) => {
   await page.goto('https://demoqa.com/text-box');
@@ -44,4 +45,12 @@ test('deve clicar no botão Click Me e verificar o resultado', async ({ page }) 
     await buttonsPage.visit();
     await buttonsPage.clickMe();
     await buttonsPage.checkResult();
+});
+
+test('deve selecionar uma opção no menu de seleção e verificar o resultado', async ({ page }) => {
+    const selectMenuPage = new SelectMenuPage(page);
+    await selectMenuPage.visit();
+    await selectMenuPage.buttonSelectValue();
+    await selectMenuPage.selectOption();
+    await selectMenuPage.checkResult();
 });
