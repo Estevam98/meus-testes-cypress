@@ -1,15 +1,10 @@
 {
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["es5", "dom"],
-    "types": ["cypress", "node"]
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "esModuleInterop": true,
+    "types": ["node"]
   },
-  "include": [
-    "cypress/**/*.ts"
-  ]
-
-  ,
-"cypress-cucumber-preprocessor": {
-  "stepDefinitions": "cypress/step_definitions/**/*.{js,ts}"
-}
+  "include": ["playwright-tests/**/*.ts", "playwright.config.ts"]
 }

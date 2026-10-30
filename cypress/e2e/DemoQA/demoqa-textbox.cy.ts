@@ -1,7 +1,7 @@
-import TextBoxPage from '../../pages/demoqa/TextBoxPage'
-import ButtonsPage from '../../pages/demoqa/ButtonsPage'
-import CheckboxPage from '../../pages/demoqa/CheckboxPage'
-import RadioButtonPage from '../../pages/demoqa/RadioButtonPage'
+import TextBoxPage from '../../pages/DemoQA/TextBoxPage'
+import ButtonsPage from '../../pages/DemoQA/ButtonsPage'
+import CheckboxPage from '../../pages/DemoQA/CheckBoxPage'
+import RadioButtonPage from '../../pages/DemoQA/RadioButtonPage'
 
 describe('DemoQA - Text Box', () => {
   beforeEach(() => {

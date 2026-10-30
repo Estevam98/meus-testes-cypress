@@ -1,30 +1,39 @@
-import { test, expect } from '@playwright/test';
-
+// Importa o `test` ESTENDIDO (com bloqueio de anúncios e fixtures), não o do Playwright.
+import { test } from '../fixtures';
+import SignupPage from '../pages/AutomationExercise/SignupPage';
 import LoginPage from '../pages/AutomationExercise/LoginPage';
 
-test('deve informar as credenciais, verificar a página e criar o cadastro', async ({ page }) => {
-    const timestamp = Date.now();
-    const email = `teste${timestamp}@teste.com.br`;
-    const name = `Lucas${timestamp}`;
+test('Jornada: cadastro pela UI e depois login com sessão limpa', async ({ page, context, newUser }) => {
+  const signupPage = new SignupPage(page);
+  const loginPage = new LoginPage(page);
 
-    const loginPage = new LoginPage(page);
-    await loginPage.visit();
+  // ETAPA 1: cadastro pela UI, com credenciais únicas vindas do fixture
+  await signupPage.visit();
+  await signupPage.signupName(newUser.name);
+  await signupPage.signupEmail(newUser.email);
+  await signupPage.clickSignupButton();
+  await signupPage.checkSignupPage();
+  await signupPage.clickTitle();
+  await signupPage.registerName(newUser.name);
+  await signupPage.registerPassword(newUser.password);
+  await signupPage.firstName('Lucas');
+  await signupPage.lastName('Estevam');
+  await signupPage.registerAdress('123 Main St');
+  await signupPage.registerCountry('United States');
+  await signupPage.registerState('California');
+  await signupPage.registerCity('Los Angeles');
+  await signupPage.registerZipcode('90210');
+  await signupPage.registerMobileNumber('1234567890');
+  await signupPage.createAccountButton();
+  await signupPage.checkCreateAccount();
+  await signupPage.clickContinueButton();
 
-    await loginPage.signupName(name);
-    await loginPage.signupEmail(email);
-    await loginPage.clickSignupButton();
-    await loginPage.checkSignupPage();
-    await loginPage.clickTitle();
-    await loginPage.registerName(name);
-    await loginPage.registerPassword('123456');
-    await loginPage.firstName('Lucas');
-    await loginPage.lastName('Estevam');
-    await loginPage.registerAdress('123 Main St');
-    await loginPage.registerCountry('United States');
-    await loginPage.registerState('California');
-    await loginPage.registerCity('Los Angeles');
-    await loginPage.registerZipcode('90210');
-    await loginPage.registerMobileNumber('1234567890');
-    await loginPage.createAccountButton();
-    await loginPage.checkCreateAccount();
+  // ETAPA 2: reset de sessão. O cadastro deixou o usuário logado.
+  await context.clearCookies();
+
+  // ETAPA 3: login válido apenas se começar deslogado
+  await loginPage.visit();
+  await loginPage.expectLoggedOut();
+  await loginPage.login(newUser);
+  await loginPage.expectLoggedInAs(newUser.name);
 });
