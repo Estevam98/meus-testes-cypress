@@ -1,10 +1,11 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from '../fixtures';
 
 import TextBoxPage from '../pages/DemoQA/TextBoxPage';
 import CheckboxPage from '../pages/DemoQA/CheckboxPage';
 import RadioButtonPage from '../pages/DemoQA/RadioButtonPage';
 import ButtonsPage from '../pages/DemoQA/ButtonsPage';
 import SelectMenuPage from '../pages/DemoQA/SelectMenuPage';
+
 
 test('deve verificar o título da página', async ({ page }) => {
   await page.goto('https://demoqa.com/text-box');
