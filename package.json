@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+  "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p cypress/tsconfig.json",
+  "test:pw": "playwright test",
+  "test:cy": "cypress run"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
