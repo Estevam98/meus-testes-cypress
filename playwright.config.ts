@@ -6,7 +6,9 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : 2,
-  reporter: 'html',
+  reporter: process.env.CI
+  ? [['github'], ['html', { open: 'never' }]]
+  : 'html',
 
   // expect fica no nível de cima, fora do use
   expect: { timeout: 10_000 },
